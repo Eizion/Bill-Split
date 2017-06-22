@@ -1,0 +1,58 @@
+<!--Eizion-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz 1</title>
+</head>
+<body>
+
+<p>Bill Splitter Split</p>
+
+<form name="myForm">
+    <label>Bill Amount:</label>
+    <input type="text" id="bill" name="bill" value="0"> <br>
+
+    <label>Tip:</label>
+    <input type="text" id="tip" name="tip" value="0"> <br>
+
+    <label>Number of people to split:</label>
+    <input type="text" id="party" name="party" value="1"> <br>
+
+    <input type="button" id="calculate" name="Calculate" value="Calculate" onclick="calculateSplit();">
+    <input type="reset" id="Reset" name="Reset" value="Reset">
+</form>
+
+<script type="text/javascript">
+
+    function calculateSplit() {
+
+        //get variables
+        var bill = parseFloat(document.getElementById("bill").value);
+        var tip = parseFloat(document.getElementById("tip").value);
+        var party = parseFloat(document.getElementById("party").value);
+
+        //declare
+        var billTotal;
+        var splitCost;
+        var message;
+
+        //math
+        billTotal = bill * (1 + (tip * 0.01));
+        splitCost = billTotal / party;
+
+        //logic
+        if (tip == 0) {
+            message = "You should leave a tip.";
+        } else {
+            message = "";
+        }
+
+        //out
+        alert("Everyone owes $" + splitCost + ". " + message);
+    }
+
+</script>
+
+</body>
+</html>
